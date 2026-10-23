@@ -12,6 +12,7 @@ def main():
     file_path = script_dir / "METABRIC_RNA_Mutation.csv"
     dataset = pd.read_csv(file_path)
 
+    # Set up output folders
     output_dir = script_dir / "Regression_Figures"
     output_dir.mkdir(parents=True, exist_ok=True)
 
