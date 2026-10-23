@@ -1,0 +1,29 @@
+name: Pycodestyle Check
+
+# Run on every push or upon manual request
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  pycodestyle:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Obtain the repository files
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      # Configure Python on the runner
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+
+      # Install pycodestyle
+      - name: Install pycodestyle
+        run: python -m pip install pycodestyle
+
+      # Check the Python files in the repository
+      - name: Run pycodestyle
+        run: pycodestyle .
